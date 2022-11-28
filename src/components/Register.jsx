@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
-import { Link } from "react-router-dom";
-import cuc from '../images/logocuc.png';
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from '../firebase';
 import Swal from "sweetalert2";
 
 export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  useEffect (() => {
+    if( auth.currentUser ) {
+   
+      navigate("/inicio");
+    }
+  }, [navigate]);
 
   const guardarUsuario = () => {
    
@@ -69,17 +76,13 @@ export default function Register() {
     <section className="vh-100">
       <div className="container py-5 h-100">
         <div className="row d-flex align-items-center justify-content-center h-100">
-          <div className="col-md-8 col-lg-7 col-xl-6">
-            <img src={cuc}
-              className="img-fluid" alt="Phone" />
-          </div>
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
               <li className="nav-item" role="presentation">
-                <Link to="/" className="nav-link text-danger" ><b>Login</b></Link>
+                <Link to="/" className="nav-link text-primary" ><b>Login</b></Link>
               </li>
               <li className="nav-item" role="presentation">
-                <Link to="/register" className="nav-link active bg-danger" ><b>Register</b></Link>
+                <Link to="/register" className="nav-link active bg-primary" ><b>Register</b></Link>
               </li>
             </ul>
             <form>
@@ -116,7 +119,7 @@ export default function Register() {
               </div>
             </form>
             <div className="d-grid gap-2">
-              <button type='buttom' onClick={guardarUsuario} className="btn btn-danger btn-block mb-4">Registrar</button>
+              <button type='buttom' onClick={guardarUsuario} className="btn btn-primary btn-block mb-4">Registrar</button>
             </div>
 
           

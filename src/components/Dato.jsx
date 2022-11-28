@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Dato({ registro, delete: d }) {
-  const { docID, nombre, descripcion, apellido, genero, edad, universidad, direccion, img } = registro;
+  const { docID, nombre, descripcion, apellido, genero, edad, universidad, direccion } = registro;
   const borrar = () => {
     d(docID);
   };
@@ -16,7 +16,6 @@ export default function Dato({ registro, delete: d }) {
       <td>{universidad}</td>
       <td>{direccion}</td>
       <td>{descripcion}</td>
-      <td><img src={img} width={100} alt="ramdon" height={100}></img></td>
       <td><button onClick={borrar} className='btn btn-danger'>Eliminar</button></td>
     </tr>
 
