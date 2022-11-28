@@ -22,6 +22,7 @@ export default function TablaPeticiones() {
 
   useEffect(() => {
     obtenerDatos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lista])
 
   const cerrarSesion = () => {
@@ -47,7 +48,7 @@ export default function TablaPeticiones() {
       const data = await db.collection('registros').get()
       const Data =
         data.docs.map(doc => ({ docID: doc.id, ...doc.data() }))
-      const arrayData = Data.filter((element) => element.userEmail == user.email)
+      const arrayData = Data.filter((element) => element.userEmail === user.email)
       setLista(arrayData)
       setCargando(false)
     } catch (error) {

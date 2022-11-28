@@ -52,6 +52,7 @@ export default function Login() {
        }
        console.log(error)
      }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
    },[email,password])
 
    
@@ -71,8 +72,7 @@ export default function Login() {
       <div className="container py-5 h-100">
         <div className="row d-flex align-items-center justify-content-center h-100">
           <div className="col-md-8 col-lg-7 col-xl-6">
-            <img src={cuc}
-              className="img-fluid" alt="Phone image" />
+            <img src={cuc} className="img-fluid" alt="Phone" />
           </div>
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">

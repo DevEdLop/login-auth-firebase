@@ -16,7 +16,7 @@ export default function Dato({ registro, delete: d }) {
       <td>{universidad}</td>
       <td>{direccion}</td>
       <td>{descripcion}</td>
-      <td><img src={img} width={100} height={100}></img></td>
+      <td><img src={img} width={100} alt="ramdon" height={100}></img></td>
       <td><button onClick={borrar} className='btn btn-danger'>Eliminar</button></td>
     </tr>
 
