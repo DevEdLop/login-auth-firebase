@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 import { auth } from '../firebase';
 import Swal from "sweetalert2";
+import ecommerce from '../images/Celular-Ecommerce.png'
+
 
 export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
-  useEffect (() => {
-    if( auth.currentUser ) {
-   
-      navigate("/inicio");
-    }
-  }, [navigate]);
 
   const guardarUsuario = () => {
-   
+
     if (!email.trim()) {
       messeg('el campo email es obligatorio')
       return
@@ -24,8 +19,8 @@ export default function Register() {
     if (!password.trim()) {
       messeg('el campo password es obligatorio')
       return
-    } 
-    if (password.length<6) {
+    }
+    if (password.length < 6) {
       messeg('la contraseña debe tener minimo 6 caracteres')
       return
     }
@@ -39,10 +34,10 @@ export default function Register() {
       messegGood('registrado con exito')
       setEmail('');
       setPassword('');
-      document.getElementById('Nombre').value='';
-      document.getElementById('Apellido').value='';
-      document.getElementById('contraseña').value='';
-      document.getElementById('Correo').value='';
+      document.getElementById('Nombre').value = '';
+      document.getElementById('Apellido').value = '';
+      document.getElementById('contraseña').value = '';
+      document.getElementById('Correo').value = '';
     } catch (error) {
       if (error.code === 'auth/invalid-email') {
         messeg('email invalido')
@@ -50,11 +45,11 @@ export default function Register() {
       if (error.code === 'auth/email-already-in-use') {
         messeg('el email ya esta registrado')
       }
-      
+
     }
-  },[email,password])
-  
-  const messegGood = (dato)=>{
+  }, [email, password])
+
+  const messegGood = (dato) => {
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -76,6 +71,9 @@ export default function Register() {
     <section className="vh-100">
       <div className="container py-5 h-100">
         <div className="row d-flex align-items-center justify-content-center h-100">
+          <div className="col-md-8 col-lg-7 col-xl-6">
+            <img src={ecommerce} alt="ecommerce" />
+          </div>
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
               <li className="nav-item" role="presentation">
@@ -122,7 +120,7 @@ export default function Register() {
               <button type='buttom' onClick={guardarUsuario} className="btn btn-primary btn-block mb-4">Registrar</button>
             </div>
 
-          
+
           </div>
         </div>
       </div>

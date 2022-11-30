@@ -12,6 +12,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { NavLink } from 'react-router-dom';
 import { authContext } from '../hooks/AuthProvider';
+import { Avatar, Tooltip } from '@mui/material';
+import icon from '../images/icon.png'
 
 
 
@@ -141,6 +143,11 @@ const NavBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+          <Tooltip title="MuebleApp">
+              <IconButton sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src={icon}/>
+              </IconButton>
+            </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"

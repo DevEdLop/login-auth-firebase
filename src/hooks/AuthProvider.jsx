@@ -5,11 +5,15 @@ export const authContext = createContext({})
 
 const AuthProvider = ({children}) => {
     const [auth, setAuth] = useState(false)
+    const [idUser, setIdUser] = useState(null)
 
   return (
-   <authContext.Provider  value={
-    {auth, setAuth}
-   }>
+   <authContext.Provider  value={{
+    auth, 
+    setAuth, 
+    idUser, 
+    setIdUser
+  }}>
    {children}
    </authContext.Provider>
   )

@@ -63,13 +63,13 @@ body {
 }
 .cierre{
   
-  text-align: right;
+  text-align: left;
   background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
   
 }
 .btn-cierre{
   margin: 15px;
-   color: black;
+   color: wheat;
   border: transparent;
   background-color: transparent;
 }
